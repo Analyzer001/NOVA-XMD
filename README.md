@@ -17,11 +17,11 @@
 
  <p align="center">
   <img src="https://files.catbox.moe/8r4237.jpg" width="270" style="border-radius: 20px;" />
-</p> */
+</p>
 
 ---
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&size=50&pause=4800color=RRGGBB&lines=true&vCenter=true&width=815&height=100&lines=NOVA-XMD+DEPLOY+NOW+ENJOY+BOT)](https://git.io/typing-svg) 
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&size=50&pause=4800color=RRGGBB&lines=true&vCenter=true&width=815&height=100&lines=KAJAYJAY-XMD+DEPLOY+NOW+ENJOY+BOT)](https://git.io/typing-svg) 
 
 ### 🔰 ➊ FOLLOW GITHUB
 
