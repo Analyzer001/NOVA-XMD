@@ -15,7 +15,7 @@
 </
 
 
-/* <p align="center">
+ <p align="center">
   <img src="https://files.catbox.moe/8r4237.jpg" width="270" style="border-radius: 20px;" />
 </p> */
 
