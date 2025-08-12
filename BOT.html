@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" style="--vh: 1.6600000000000001px;"><script type="text/javascript" async="" src="https://static.getbutton.io/widget-send-button/js/init.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>KAJAYJAY PAIR SITE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;family=Montserrat:wght@300;400;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0066ff;       /* Vibrant blue */
+      --secondary: #00ffcc;    /* Teal */
+      --accent: #ff00aa;       /* Pink */
+      --dark: #0a0a1a;         /* Deep blue-black */
+      --light: #e0f7ff;        /* Light blue */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Cyber Grid Background */
+    .cyber-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: var(--dark);
+      overflow: hidden;
+    }
+
+    .cyber-grid::before,
+    .cyber-grid::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 50px,
+        rgba(0, 102, 255, 0.1) 50px,
+        rgba(0, 102, 255, 0.1) 52px
+      );
+      animation: gridMove 20s linear infinite;
+    }
+
+    .cyber-grid::after {
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 50px,
+        rgba(255, 0, 170, 0.1) 50px,
+        rgba(255, 0, 170, 0.1) 52px
+      );
+    }
+
+    @keyframes gridMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100px); }
+    }
+
+    /* Glitch Effect */
+    .glitch {
+      position: relative;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+    }
+    .glitch::before {
+      color: var(--accent);
+      z-index: -1;
+      animation: glitch-effect 3s infinite;
+    }
+    .glitch::after {
+      color: var(--secondary);
+      z-index: -2;
+      animation: glitch-effect 2s infinite reverse;
+    }
+    @keyframes glitch-effect {
+      0% { transform: translate(0); }
+      20% { transform: translate(-3px, 3px); }
+      40% { transform: translate(-3px, -3px); }
+      60% { transform: translate(3px, 3px); }
+      80% { transform: translate(3px, -3px); }
+      100% { transform: translate(0); }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+      margin-top: 60px;
+    }
+
+    /* News Ticker */
+    .news-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .news-container .title {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      padding: 10px 24px;
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      z-index: 1001;
+    }
+
+    .news-container .ticker {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(10, 10, 26, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      margin-left: 40%;
+    }
+
+    .news-container ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      animation: scroll 20s infinite linear;
+    }
+
+    .news-container ul li {
+      white-space: nowrap;
+      padding: 0 24px;
+      color: var(--secondary);
+      font-size: 1rem;
+      text-shadow: 0 0 5px var(--secondary);
+      position: relative;
+    }
+
+    .news-container ul li::after {
+      content: "";
+      width: 1px;
+      height: 100%;
+      background: var(--accent);
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0.5;
+    }
+
+    .news-container ul li:last-child::after {
+      display: none;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(10, 10, 26, 0.7);
+      border: 2px solid var(--primary);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-shadow: 0 0 10px var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+
+    .feature-card {
+      background: rgba(10, 10, 26, 0.8);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .feature-card:nth-child(2) {
+      border-color: var(--secondary);
+    }
+    .feature-card:nth-child(3) {
+      border-color: var(--accent);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+    }
+    .feature-card:nth-child(2):hover {
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+    }
+    .feature-card:nth-child(3):hover {
+      box-shadow: 0 0 15px rgba(255, 0, 170, 0.5);
+    }
+
+    .feature-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .feature-card:nth-child(2) h3 {
+      color: var(--secondary);
+    }
+    .feature-card:nth-child(3) h3 {
+      color: var(--accent);
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: var(--light);
+      flex-grow: 1;
+    }
+
+    .feature-card .btn {
+      width: 100%;
+      padding: 0.8em;
+      font-size: 1rem;
+      border-color: var(--primary);
+      color: var(--primary);
+      text-shadow: 0 0 5px var(--primary);
+    }
+    .feature-card:nth-child(2) .btn {
+      border-color: var(--secondary);
+      color: var(--secondary);
+      text-shadow: 0 0 5px var(--secondary);
+    }
+    .feature-card:nth-child(3) .btn {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-shadow: 0 0 5px var(--accent);
+    }
+
+    /* About Section */
+    .about {
+      background: rgba(10, 10, 26, 0.8);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .about h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      color: var(--light);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: rgba(10, 10, 26, 0.8);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .contact h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      color: var(--light);
+      margin-bottom: 20px;
+    }
+
+    /* Buttons */
+    .btn {
+      background: transparent;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      color: var(--primary);
+      text-shadow: 0 0 5px var(--primary);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.3), transparent);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      background: rgba(0, 102, 255, 0.2);
+      box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+      color: white;
+      border-color: white;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+      filter: brightness(0.8);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(10, 10, 26, 0.8);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      text-align: center;
+      color: var(--light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      text-shadow: 0 0 5px var(--light);
+      width: 100%;
+    }
+
+    .footer b {
+      color: var(--primary);
+    }
+
+    .footer .social-links {
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer .social-links a {
+      color: var(--primary);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer .social-links a:hover {
+      color: var(--secondary);
+      text-shadow: 0 0 10px var(--secondary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+        margin-top: 80px;
+      }
+
+      .news-container .title {
+        width: 50%;
+        font-size: 0.7rem;
+        padding: 8px 15px;
+      }
+
+      .news-container .ticker {
+        margin-left: 50%;
+      }
+
+      .news-container ul li {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .about h2,
+      .contact h2 {
+        font-size: 1.5rem;
+      }
+
+      .about p,
+      .contact p {
+        font-size: 1rem;
+      }
+
+      .feature-card .btn {
+        font-size: 0.9rem;
+        padding: 0.6em;
+      }
+
+      .footer .social-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+    }
+  </style>
+    
+  
+
+  <script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/traffic.js"></script><style data-styled="active" data-styled-version="5.3.11"></style></head><body __processed_a598bba4-8945-4a92-a3e5-cddf9939be1e__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZGlzYWJsZWQiLCJDT05GSUciOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMi4wLjI2Iiwic2NvcmUiOjIwMDI2fV0="><div class="container" bis_skin_checked="1">
+    <!-- Hero Section -->
+    <div class="hero" bis_skin_checked="1">
+      <h1 class="glitch" data-text="KAJAYJAY">KAJAYJAY XMD PAIR SITE</h1>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features" bis_skin_checked="1">
+      <div class="feature-card" bis_skin_checked="1">
+        <h3>QR CODE PAIRING</h3>
+        <p>sᴄᴀɴ ᴀ ǫʀ ᴄᴏᴅᴇ ᴛᴏ ɪɴsᴛᴀɴᴛʟʏ ᴄᴏɴɴᴇᴄᴛ ʏᴏᴜʀ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ ᴡɪᴛʜ ᴀ sᴇᴄᴜʀᴇ sᴇssɪᴏɴ ɪᴅ.</p>
+        <button onclick="window.location.href='/qr'" class="btn">GET QR CODE</button>
+      </div>
+      <div class="feature-card" bis_skin_checked="1">
+        <h3>PAIR CODE</h3>
+        <p>ᴇɴᴛᴇʀ ᴀ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ ᴀɴᴅ ɢᴇᴛ ᴀ ᴄᴏᴅᴇ ᴛᴏ ᴘᴀɪʀ ʏᴏᴜʀ ʙᴏᴛ ᴡɪᴛʜᴏᴜᴛ sᴄᴀɴɴɪɴɢ.</p>
+        <button onclick="window.location.href='/pair'" class="btn">Get PAIR CODE</button>
+      </div>
+      <div class="feature-card" bis_skin_checked="1">
+        <h3>KAJAYAJAY PAIR SITE</h3>
+        <p>KAJAYJAY XMD REPO SITE FORK REPO AND LIKE AND FOLLOW</p>
+        <button onclick="window.location.href='https://github.com/analyzer001" class="btn">REPO SITE</button>
+      </div>
+      <div class="feature-card" bis_skin_checked="1">
+        <h3>WHATSAPP BOT</h3>
+        <p>WELCOME TO WHATSAPP TO WHATSAPP BOT GROUP</p>
+        <button onclick="window.location.href='https://chat.whatsapp.com/LCSDGOvWV9h61KfnYA9ae7'" class="btn">CHANNEL</button>
+      </div>
+    </div>
+
+  <!-- Footer -->
+  <div class="footer" bis_skin_checked="1">
+    <p> KAJAYJAY 2025-2026 ALL RIGHTS RESERVED</p>
+    <p>KAJAYJAY XMD THE ULTIMATE WHATSAPP BOT SOLUTION</p>
+    <div class="social-links" bis_skin_checked="1">
+      <a href="https://wa.me/254794540125" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://Instagram.com/kajayjay001" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/analyzer001" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://youtube.com/@TrendyTech_2025" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <!-- GetButton.io widget -->
+  <script type="text/javascript">
+    (function () {
+      var options = {
+        whatsapp: "+254794540125",
+        telegram: "MigiHantenkan",
+        call_to_action: "Need help? Message us",
+        button_color: "#0066ff",
+        position: "left",
+        order: "whatsapp,telegram",
+        pre_filled_message: "Hello from bmb tech Pair Site",
+      };
+      var proto = 'https:', host = "getbutton.io", url = proto + '//static.' + host;
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+  </script>
+
+  
+</div><div id="gb-widget-9589" script-id="false" style="
+    bottom: 14px;
+    left: 16px;
+    // opacity: 0;
+    // transition: opacity 0.5s;
+    box-sizing: border-box;
+    position: fixed !important;
+    z-index: 16000160 !important;
+    direction: ltr;
+    text-align: left;
+    display: false;
+    align-items: false;
+    flex-direction: row-reverse;
+  " bis_skin_checked="1"><div class="sc-q8c6tt-3 hrQZPo" bis_skin_checked="1"><div color="#0066ff" size="50" class="sc-q8c6tt-1 ljrDDi" bis_skin_checked="1"><a data-component-name="BaseButtonActivator" aria-label="Open messengers list" color="#0066ff" size="50" direction="column" order="whatsapp,telegram" class="sc-q8c6tt-0 ldGdET"><div class="sc-v2p3h2-0 efYzvp" bis_skin_checked="1"><svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 100%; height: 100%; fill: rgb(255, 255, 255); stroke: none;"><path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path></svg></div></a></div></div><a size="50" type="link" href="https://getbutton.io/?utm_campaign=multy_widget&amp;utm_medium=widget&amp;utm_source=nova-pair-site.onrender.com" target="_blank" aria-label="Go to GetButton.io website" class="sc-sbsi7l-0 hQDBEg"><div class="sc-1au8ryl-0 dkuywW" bis_skin_checked="1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.16 10.15"><path d="M2.49,6.42,1.65,9.75c-.09.27.18.54.4.21L3.68,7.89A5.49,5.49,0,0,0,4.76,8C7.4,8,9.53,6.21,9.53,4S7.4,0,4.76,0,0,1.79,0,4A3.47,3.47,0,0,0,.24,5.25a.45.45,0,0,0,.49.18,7.07,7.07,0,0,0,.7-.26s.24-.1.19-.48h0A2,2,0,0,1,1.49,4C1.49,2.62,3,1.5,4.76,1.5S8,2.62,8,4,6.57,6.5,4.76,6.5a4.06,4.06,0,0,1-1.68-.36A.49.49,0,0,0,2.49,6.42Z" fill="#afafaf"></path><path d="M11.12,10.15H11l-1.49-.9a5.45,5.45,0,0,1-2.4.6,4.16,4.16,0,0,1-2.27-.62L5,9.17c2.22,0,5.43-1.66,5.61-4.37h0a3,3,0,0,1,.57,1.86,2.33,2.33,0,0,1-.65,1.64l.52,1.29s.22.44.16.51-.06.05-.11.05Z" fill="#afafaf"></path><path d="M49.84,3.21h0a2.33,2.33,0,0,1,2.32,2.34v1.3a2.33,2.33,0,0,1-2.32,2.33h0a2.34,2.34,0,0,1-2.33-2.33V5.55A2.34,2.34,0,0,1,49.84,3.21Zm0,1.16h0a1,1,0,0,1,1,1V7a1,1,0,0,1-1,1h0a1,1,0,0,1-1-1V5.39A1,1,0,0,1,49.84,4.37Z" fill="#afafaf" fill-rule="evenodd"></path><path d="M55.83,3.21h0a2.34,2.34,0,0,1,2.33,2.34V9.06H56.84V5.39a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V9.06H53.5V5.55A2.34,2.34,0,0,1,55.83,3.21Z" fill="#afafaf"></path><path d="M36.93,9.06h0a2.33,2.33,0,0,0,2.33-2.32V3.21H37.94V6.9a1,1,0,0,1-1,1h0a1,1,0,0,1-1-1V3.21H34.6V6.74A2.33,2.33,0,0,0,36.93,9.06Z" fill="#afafaf"></path><polygon points="43.2 3.37 42.12 3.37 42.12 1.79 40.97 1.79 40.97 3.37 39.91 3.37 40.26 4.39 40.97 4.39 40.97 9.03 42.12 9.03 42.12 4.39 43.2 4.39 43.2 3.37" fill="#afafaf"></polygon><polygon points="46.76 3.37 45.67 3.37 45.67 1.79 44.52 1.79 44.52 3.37 43.47 3.37 43.81 4.39 44.52 4.39 44.52 9.03 45.67 9.03 45.67 4.39 46.76 4.39 46.76 3.37" fill="#afafaf"></polygon><path d="M28.56,1.73H30.9a3.48,3.48,0,0,1,1.34.18,1.53,1.53,0,0,1,.66.63,2.11,2.11,0,0,1,.27,1,2,2,0,0,1-.23.95,1.6,1.6,0,0,1-.59.64,1.49,1.49,0,0,1,.8.64,2.09,2.09,0,0,1,.3,1.11,2.31,2.31,0,0,1-.38,1.35,1.54,1.54,0,0,1-.88.68A9,9,0,0,1,30.54,9h-2ZM29.73,3V4.64h.78a7.06,7.06,0,0,0,.87,0,.71.71,0,0,0,.47-.26A.86.86,0,0,0,32,3.77a.91.91,0,0,0-.14-.52A.64.64,0,0,0,31.55,3a8.16,8.16,0,0,0-1.14,0Zm0,2.9V7.79h1.1a3.49,3.49,0,0,0,.92-.07.71.71,0,0,0,.35-.3,1.13,1.13,0,0,0,.13-.58,1.2,1.2,0,0,0-.14-.59.88.88,0,0,0-.4-.32,4.1,4.1,0,0,0-1-.08Z" fill="#afafaf"></path><polygon points="27.56 3.37 26.47 3.37 26.47 1.79 25.32 1.79 25.32 3.37 24.27 3.37 24.62 4.39 25.32 4.39 25.32 9.03 26.47 9.03 26.47 4.39 27.56 4.39 27.56 3.37" fill="#afafaf"></polygon><path d="M21.49,3.21h0a2.34,2.34,0,0,1,2.33,2.34v1H20.48V7c0,1.25,1.94,1.19,2.3.72l1,.72c-1.13,1.36-4.59.87-4.59-1.61V5.55A2.34,2.34,0,0,1,21.49,3.21Zm-1,2.38h2v-.2a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1Z" fill="#afafaf"></path><path 
