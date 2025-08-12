@@ -25,13 +25,13 @@
 
 ### 🔰 ➊ FOLLOW GITHUB
 
-[![](https://img.shields.io/badge/➕_FOLLOW_NOVA-XMD-orange?style=for-the-badge&logo=github)](https://github.com/novaxmd)
+[![](https://img.shields.io/badge/➕_FOLLOW_NOVA-XMD-orange?style=for-the-badge&logo=github)](https://github.com/analyzer001)
 
 ---
 
 ### 🔃 ➋ FORK REPOSITORY
 
-[![](https://img.shields.io/badge/🔁_FORK_THIS_REPO-FF4500?style=for-the-badge&logo=github)](https://github.com/novaxmd/NOVA-XMD/fork)
+[![](https://img.shields.io/badge/🔁_FORK_THIS_REPO-FF4500?style=for-the-badge&logo=github)](https://github.com/analyzer001/NOVA-XMD/fork)
 
 ---
 
