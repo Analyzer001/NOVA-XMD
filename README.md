@@ -25,7 +25,7 @@
 
 ### 🔰 ➊ FOLLOW GITHUB
 
-[![](https://img.shields.io/badge/➕_FOLLOW_NOVA-XMD-orange?style=for-the-badge&logo=github)](https://github.com/analyzer001)
+[![](https://img.shields.io/badge/➕_FOLLOW_KAJAYJAY-XMD-orange?style=for-the-badge&logo=github)](https://github.com/analyzer001)
 
 ---
 
