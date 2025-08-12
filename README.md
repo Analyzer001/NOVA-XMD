@@ -7,7 +7,7 @@
 </p>
 
 <div align="center">
-  <a href="https://github.com/novaxmd/followers"><img title="Followers" src="https://img.shields.io/github/followers/kajayjayxmd?color=EB5406&style=for-the-badge&logo=github&logoColor=white"></a>
+  <a href="https://github.com/novaxmd/followers"><img title="Followers" src="https://img.shields.io/github/followers/analyzer001?color=EB5406&style=for-the-badge&logo=github&logoColor=white"></a>
   <a href="https://github.com/novaxmd/NOVA-XMD/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/novaxmd/NOVA-XMD?color=FFCE44&style=for-the-badge&logo=reverbnation&logoColor=white"></a>
   <a href="https://github.com/novaxmd/NOVA-XMD/network/members"><img title="Forks" src="https://img.shields.io/github/forks/novaxmd/NOVA-XMD?color=FF007F&style=for-the-badge&logo=git&logoColor=white"></a>
   <a href="https://github.com/novaxmd/NOVA-XMD/"><img title="Size" src="https://img.shields.io/github/repo-size/novaxmd/NOVA-XMD?style=for-the-badge&color=FFFF33&logo=docusign&logoColor=white"></a>
